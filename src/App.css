@@ -5,15 +5,15 @@
 }
 
 body {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 2rem;
 }
 
 main {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
