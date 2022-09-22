@@ -23,6 +23,7 @@ function Table() {
   useEffect(() => {
     const fetch = () => fetchApi();
     fetch();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) return <h2>Carregando ...</h2>;
