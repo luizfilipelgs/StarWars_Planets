@@ -10,7 +10,9 @@ function Provider({ children }) {
     setLoading(true);
     const response = await fetch('https://swapi.dev/api/planets');
     const data = await response.json();
-    const onlyPlanets = data.results.map((planet) => delete planet.residents);
+    console.log(data);
+    const onlyPlanets = data.results.filter((planet) => delete planet.residents);
+    console.log(onlyPlanets);
     setPlanets(onlyPlanets);
     setLoading(false);
   };

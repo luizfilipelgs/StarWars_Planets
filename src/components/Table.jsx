@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import MyContex from '../context/MyContext';
+import '../style/Table.css';
 
 function Table() {
   const theader = ['Name ',
@@ -24,9 +25,9 @@ function Table() {
     fetch();
   }, []);
 
+  if (loading) return <h2>Carregando ...</h2>;
   return (
-    <main>
-      {loading && <h2>Carregando ...</h2>}
+    <div id="container-table">
       <table>
         <thead>
           <tr>
@@ -34,7 +35,7 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          { planets && planets.map((planet) => (
+          {planets && planets.map((planet) => (
             <tr key={ planet.name }>
               <td>{planet.name}</td>
               <td>{planet.rotation_period}</td>
@@ -45,11 +46,7 @@ function Table() {
               <td>{planet.terrain}</td>
               <td>{planet.surface_water}</td>
               <td>{planet.population}</td>
-              <td>
-                {planet.films.map((film, index) => (
-                  <p key={ index }>{film}</p>
-                ))}
-              </td>
+              <td>{planet.films.map((film) => (<p key={ film }>{film}</p>))}</td>
               <td>{planet.created}</td>
               <td>{planet.edited}</td>
               <td>{planet.url}</td>
@@ -57,7 +54,7 @@ function Table() {
           ))}
         </tbody>
       </table>
-    </main>
+    </div>
   );
 }
 
