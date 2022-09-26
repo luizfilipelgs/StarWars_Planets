@@ -6,7 +6,16 @@
   display: flex;
   flex-direction: column;
   height: 10rem;
-  margin: 5rem 2rem 2rem 2rem;
+  margin: 2rem;
   padding: 1rem;
   width: 75rem;
+}
+
+#name-filter {
+  background: transparent;
+  border: 1px solid white;
+  color: rgb(210, 224, 13);
+  height: 1.5rem;
+  text-align: center;
+  width: 20rem;
 }

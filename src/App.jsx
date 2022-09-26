@@ -8,8 +8,8 @@ import Provider from './context/MyProvider';
 function App() {
   return (
     <Provider>
+      <Logo />
       <main>
-        <Logo />
         <Filters />
         <Table />
       </main>

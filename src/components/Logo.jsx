@@ -1,9 +1,12 @@
 import React from 'react';
 import logoGif from '../imgs/projectIntro.gif';
+import '../style/Logo.css';
 
 function Logo() {
   return (
-    <img src={ logoGif } alt="logo star wars" />
+    <div id="container-logo">
+      <img src={ logoGif } alt="logo star wars" />
+    </div>
   );
 }
 

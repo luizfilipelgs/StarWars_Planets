@@ -1,0 +1,7 @@
+#container-logo {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
