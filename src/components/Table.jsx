@@ -21,8 +21,7 @@ function Table() {
   const { planets, loading, fetchApi } = useContext(MyContex);
 
   useEffect(() => {
-    const fetch = () => fetchApi();
-    fetch();
+    fetchApi();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
