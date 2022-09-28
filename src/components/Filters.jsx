@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../style/Filters.css';
+import MyContext from '../context/MyContext';
 
 function Filters() {
-  const handleChangeInput = () => {
-    
-  }
+  const {
+    planetName,
+    setPlanetName,
+    // filtersFunc,
+  } = useContext(MyContext);
+
   return (
     <form id="form-filters">
       <input
         type="text"
         name="name"
         placeholder="Filtre por nome"
-        /* value={  } */
+        value={ planetName }
         id="name-filter"
         data-testid="name-filter"
-        /* onChange={ handleChange } */
+        onChange={ ({ target }) => setPlanetName(() => target.value) }
       />
     </form>
   );

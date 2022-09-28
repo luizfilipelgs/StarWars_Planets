@@ -18,12 +18,18 @@ function Table() {
     'URL',
   ];
 
-  const { planets, loading, fetchApi } = useContext(MyContex);
+  const { loading,
+    fetchApi,
+    planets,
+    planetName } = useContext(MyContex);
 
   useEffect(() => {
     fetchApi();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const xomps = () => (planets.filter((pla) => (pla.name.toLowerCase()
+    .includes(planetName.toLowerCase()))));
 
   if (loading) return <h2>Carregando ...</h2>;
   return (
@@ -35,23 +41,24 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {planets && planets.map((planet) => (
-            <tr key={ planet.name }>
-              <td>{planet.name}</td>
-              <td>{planet.rotation_period}</td>
-              <td>{planet.orbital_period}</td>
-              <td>{planet.diameter}</td>
-              <td>{planet.climate}</td>
-              <td>{planet.gravity}</td>
-              <td>{planet.terrain}</td>
-              <td>{planet.surface_water}</td>
-              <td>{planet.population}</td>
-              <td>{planet.films.map((film) => (<p key={ film }>{film}</p>))}</td>
-              <td>{planet.created}</td>
-              <td>{planet.edited}</td>
-              <td>{planet.url}</td>
-            </tr>
-          ))}
+          {xomps()
+            .map((planet) => (
+              <tr key={ planet.name }>
+                <td>{planet.name}</td>
+                <td>{planet.rotation_period}</td>
+                <td>{planet.orbital_period}</td>
+                <td>{planet.diameter}</td>
+                <td>{planet.climate}</td>
+                <td>{planet.gravity}</td>
+                <td>{planet.terrain}</td>
+                <td>{planet.surface_water}</td>
+                <td>{planet.population}</td>
+                <td>{planet.films.map((film) => (<p key={ film }>{film}</p>))}</td>
+                <td>{planet.created}</td>
+                <td>{planet.edited}</td>
+                <td>{planet.url}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
