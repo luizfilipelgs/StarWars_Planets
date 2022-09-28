@@ -27,7 +27,6 @@ function Table() {
 
   useEffect(() => {
     fetchApi();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Aula Braddock
