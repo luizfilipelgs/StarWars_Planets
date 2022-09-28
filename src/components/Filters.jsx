@@ -36,6 +36,7 @@ function Filters() {
         <select
           name="column-filter"
           id="column-filter"
+          value={ filters.column }
           data-testid="column-filter"
           onChange={ ({ target }) => {
             setFilters((prevState) => ({ ...prevState, column: target.value }));
@@ -57,6 +58,7 @@ function Filters() {
         <select
           name="comparison-filter"
           id="comparison-filter"
+          value={ filters.comparison }
           data-testid="comparison-filter"
           onChange={ ({ target }) => {
             setFilters((prevState) => ({ ...prevState, comparison: target.value }));
