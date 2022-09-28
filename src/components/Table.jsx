@@ -21,15 +21,44 @@ function Table() {
   const { loading,
     fetchApi,
     planets,
-    planetName } = useContext(MyContex);
+    planetName,
+    filtersSelected,
+  } = useContext(MyContex);
 
   useEffect(() => {
     fetchApi();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const xomps = () => (planets.filter((pla) => (pla.name.toLowerCase()
-    .includes(planetName.toLowerCase()))));
+  // Aula Braddock
+  const filterFunc = () => ((planets.filter((pla) => (pla.name.toLowerCase()
+    .includes(planetName.toLowerCase()))))
+    .filter((planet) => {
+      const bools = [];
+      filtersSelected.forEach((filter) => {
+        switch (filter.comparison) {
+        case 'maior que':
+          bools.push(
+            (Number(planet[filter.column]) > Number(filter.value)),
+          );
+          break;
+        case 'menor que':
+          bools.push(
+            (Number(planet[filter.column]) < Number(filter.value)),
+          );
+          break;
+        case 'igual a':
+          bools.push(
+            (Number(planet[filter.column]) === Number(filter.value)),
+          );
+          break;
+
+        default:
+          return true;
+        }
+      });
+      return bools.every((el) => el);
+    }));
 
   if (loading) return <h2>Carregando ...</h2>;
   return (
@@ -41,7 +70,7 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {xomps()
+          {filterFunc()
             .map((planet) => (
               <tr key={ planet.name }>
                 <td>{planet.name}</td>

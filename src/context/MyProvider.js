@@ -6,6 +6,12 @@ function Provider({ children }) {
   const [planets, setPlanets] = useState([]);
   const [loading, setLoading] = useState(null);
   const [planetName, setPlanetName] = useState('');
+  const [filtersSelected, setFiltersSelected] = useState([]);
+  const [filters, setFilters] = useState({
+    column: 'population',
+    comparison: 'maior que',
+    value: 0,
+  });
 
   const fetchApi = async () => {
     setLoading(true);
@@ -29,6 +35,10 @@ function Provider({ children }) {
     planets,
     loading,
     fetchApi,
+    setFilters,
+    filters,
+    setFiltersSelected,
+    filtersSelected,
   };
 
   return (
