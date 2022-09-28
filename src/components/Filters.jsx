@@ -13,8 +13,8 @@ function Filters() {
   } = useContext(MyContext);
 
   const selectColumn = [
-    'population',
     'orbital_period',
+    'population',
     'diameter',
     'rotation_period',
     'surface_water',
