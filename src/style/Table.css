@@ -1,6 +1,6 @@
 #container-table {
   margin-bottom: 5rem;
-  overflow: auto;
+  overflow: scroll;
   width: 75rem;
 }
 
@@ -9,6 +9,7 @@ table {
   border-collapse: collapse;
   color: rgb(210, 224, 13);
   font-family: arial , sans-serif;
+  font-weight: 600;
 }
 
 td, th {

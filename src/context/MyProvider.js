@@ -18,10 +18,9 @@ function Provider({ children }) {
     try {
       const response = await fetch('https://swapi.dev/api/planets');
       const data = await response.json();
-      /* console.log(data); */
       const onlyPlanets = data.results.filter((planet) => delete planet.residents);
       console.log(onlyPlanets);
-      console.log('fetch'); // porque esta fazendo o fetch mais de uma vez ?
+      console.log('fetch'); //
       setPlanets(onlyPlanets);
       setLoading(false);
     } catch (error) {

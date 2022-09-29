@@ -21,7 +21,7 @@ function Filters() {
   ];
 
   return (
-    <form id="form-filters">
+    <form id="form-filters" data-testid="form-filters">
       <input
         type="text"
         name="name"
@@ -88,6 +88,14 @@ function Filters() {
       >
         Adiciona filtros
       </button>
+      <button
+        type="button"
+        name="button-remove-filters"
+        data-testid="button-remove-filters"
+        onClick={ () => (setFiltersSelected(() => [])) }
+      >
+        Remover Filtros
+      </button>
       {
         filtersSelected.map((filter, index) => (
           <div key={ index } data-testid="filter">
@@ -96,6 +104,8 @@ function Filters() {
             <p>{ filter.value }</p>
             <button
               type="button"
+              name="btn-rmv-filter"
+              data-testid="btn-rmv-filter"
               onClick={ () => {
                 const removedFilter = [...filtersSelected];
                 removedFilter.splice(index, 1);
@@ -107,14 +117,6 @@ function Filters() {
           </div>
         ))
       }
-      <button
-        type="button"
-        name="button-remove-filters"
-        data-testid="button-remove-filters"
-        onClick={ () => (setFiltersSelected(() => [])) }
-      >
-        Remover Filtros
-      </button>
     </form>
   );
 }
