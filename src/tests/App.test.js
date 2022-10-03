@@ -63,7 +63,7 @@ describe('Testa App', () => {
     expect(planet).toBeInTheDocument();
   });
 
-  test('Verifica se é possivel adicionar e remover varios filtros filtros,', async () => {
+  test('Verifica se é possivel adicionar e remover varios filtros,', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve(result),
     });
