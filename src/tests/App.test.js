@@ -1,11 +1,20 @@
 import React from 'react';
-import {  render, screen, waitFor } from '@testing-library/react';
+import {  render, screen, waitFor, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import MyProvider from '../context/MyProvider'
 import result from '../../cypress/mocks/testData';
+import { act } from 'react-dom/test-utils';
+import {within} from '@testing-library/dom'
+
 
 describe('Testa App', () => {
+
+  afterEach(() => {
+    jest.clearAllMocks();
+    cleanup();
+  }) 
+
   test('Verifica se a logo de starwars esta na tela,', () => {
     render(<App />);
     expect(screen.getByRole('img', {  name: /logo star wars/i})).toBeInTheDocument();
@@ -32,10 +41,10 @@ describe('Testa App', () => {
   });
 
   it('Testa se renderiza a API na tela', async() => {
-    render(<MyProvider><App /></MyProvider>)
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve(result),
     });
+    render(<MyProvider><App /></MyProvider>)
 
     await waitFor(() => {
       expect(fetch).toHaveBeenCalled()
@@ -57,56 +66,124 @@ describe('Testa App', () => {
       json: () => Promise.resolve(result),
     });
     render(<App />);
+
     const nameFilter = screen.getByTestId('name-filter');
     userEvent.type(nameFilter, 'ta');
     const planet = await screen.findByText(/tatooine/i);
     expect(planet).toBeInTheDocument();
   });
 
-  test('Verifica se é possivel adicionar e remover varios filtros,', async () => {
+  test('Verifica o filtro menor que,', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve(result),
     });
-    render(<App />);
-  
-    const nameFilter = screen.getByTestId('name-filter');
+
+    act( () => {
+      render(<App />);
+    });
+
+    // expect(await screen.findAllByRole('row')).toHaveLength(11); 
+    
     const columnFilter = screen.getByTestId('column-filter')
     const comparisonFilter = screen.getByTestId('comparison-filter')
     const valueFilter = screen.getByTestId('value-filter');
     const btnFilter = screen.getByTestId('button-filter');
-    const btnremoveAll = screen.getByTestId('button-remove-filters')
-
-    userEvent.type(nameFilter, 't');
-    userEvent.selectOptions(columnFilter,'surface_water');
-    userEvent.selectOptions(comparisonFilter,'igual a');
-    userEvent.type(valueFilter, '1');
-    userEvent.click(btnFilter);
-
-    expect(screen.getByTestId('filter')).toBeInTheDocument();
-    expect(screen.getByText(/surface_water/i)).toBeInTheDocument();
-
+    const btnremoveFilter = screen.getByTestId('button-remove-filters')
+    
+  
+    // 1º filtro
     userEvent.selectOptions(columnFilter,'rotation_period');
     userEvent.selectOptions(comparisonFilter,'menor que');
-    userEvent.type(valueFilter, '365');
+    userEvent.type(valueFilter, '25');
     userEvent.click(btnFilter);
+         
+      
+    const view = await screen.getByTestId('filter');
+    within(view).findAllByRole(/menor que/i);
+    userEvent.click(btnremoveFilter);
+    //expect(await screen.findAllByRole('row')).toHaveLength(9);
+  });
 
-    expect(screen.getAllByTestId('filter')[1]).toBeInTheDocument();
-    expect(screen.getByText(/rotation_period/i)).toBeInTheDocument();
+  test('Verifica o filtro menor que,', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: () => Promise.resolve(result),
+    });
 
+    act( () => {
+      render(<App />);
+    });
+
+    // expect(await screen.findAllByRole('row')).toHaveLength(11); 
+    
+    const columnFilter = screen.getByTestId('column-filter')
+    const comparisonFilter = screen.getByTestId('comparison-filter')
+    const valueFilter = screen.getByTestId('value-filter');
+    const btnFilter = screen.getByTestId('button-filter');
+    const btnremoveFilter = screen.getByTestId('button-remove-filters')
+
+    // 2º filtro
     userEvent.selectOptions(columnFilter,'diameter');
     userEvent.selectOptions(comparisonFilter,'maior que');
-    userEvent.type(valueFilter, '10000');
+    userEvent.type(valueFilter, '12000');
     userEvent.click(btnFilter);
     
-    await waitFor(() => {
-      expect(screen.getByRole('cell', {  name: /tatooine/i})).toBeInTheDocument();
+    //expect(await screen.findAllByRole('row')).toHaveLength(9);
+    const view = await screen.getByTestId('filter');
+    within(view).findAllByRole(/maior que/i);
+    userEvent.click(btnremoveFilter);
+  });
+
+  test('Verifica o filtro igual a,', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: () => Promise.resolve(result),
     });
 
-    userEvent.click(btnremoveAll);
-
-    await waitFor(() => {
-      expect(screen.getByRole('cell', {  name: /hoth/i})).toBeInTheDocument();
+    act( () => {
+      render(<App />);
     });
+
+    // expect(await screen.findAllByRole('row')).toHaveLength(11); 
     
+    const columnFilter = screen.getByTestId('column-filter')
+    const comparisonFilter = screen.getByTestId('comparison-filter')
+    const valueFilter = screen.getByTestId('value-filter');
+    const btnFilter = screen.getByTestId('button-filter');
+    const btnremoveFilter = screen.getByTestId('button-remove-filters')
+
+    // 3º filtro
+    userEvent.selectOptions(columnFilter,'surface_water');
+    userEvent.selectOptions(comparisonFilter,'igual a');
+    userEvent.type(valueFilter, 1);
+    userEvent.click(btnFilter);
+  
+    //expect(await screen.findAllByRole('row')).toHaveLength(2); 
+    const view = await screen.getByTestId('filter');
+    within(view).findAllByRole(/igual a/i);
+    userEvent.click(btnremoveFilter);
+      
+  });
+
+  test('Verifica se é possivel remover varios filtros separadamente,', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: () => Promise.resolve(result),
+    });
+    render(<App />);
+
+    act(async () => {
+      const columnFilter = screen.getByTestId('column-filter')
+      const comparisonFilter = screen.getByTestId('comparison-filter')
+      const valueFilter = screen.getByTestId('value-filter');
+      const btnFilter = screen.getByTestId('button-filter');
+      const btnremoveFilter = screen.getByTestId('button-remove-filters')
+
+      // 1º filtro
+      userEvent.selectOptions(columnFilter,'rotation_period');
+      userEvent.selectOptions(comparisonFilter,'menor que');
+      userEvent.type(valueFilter, '25');
+      userEvent.click(btnFilter);
+      
+      userEvent.click(btnremoveFilter);
+
+    });
   });
 });
