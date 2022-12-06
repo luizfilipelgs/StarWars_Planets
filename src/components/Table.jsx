@@ -27,7 +27,7 @@ function Table() {
 
   useEffect(() => {
     fetchApi();
-  }, []);
+  });
 
   // Aula Braddock
   const filterFunc = () => ((planets.filter((pla) => (pla.name.toLowerCase()

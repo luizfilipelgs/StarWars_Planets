@@ -33,15 +33,15 @@
 }
 
 .filter {
-  text-align: center;
   border: 2px solid white;
-  padding:0.4rem;
   margin: 0.4rem;
+  padding: 0.4rem;
+  text-align: center;
 }
 
 #value-filter {
-  width: 5rem;
   text-align: center;
+  width: 5rem;
 }
 
 button, input, select {
