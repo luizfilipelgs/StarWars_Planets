@@ -91,7 +91,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
   - [x] 10. 
 </details>
 
-## 1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos dados da coluna `residents`
+### 1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos dados da coluna `residents`
 
 <details><summary> Ilustração da tabela:</summary>
 
@@ -108,7 +108,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ---
 
-## 2 - Crie um filtro de texto para a tabela
+### 2 - Crie um filtro de texto para a tabela
 <details><summary> A tabela deve ser atualizada com os planetas que se encaixam no filtro à medida que o nome é digitado, sem ter que apertar em um botão para efetuar a filtragem. Por exemplo, se for digitado "Tatoo" no campo de texto, o planeta "Tatooine" deve ser exibido, como demonstrado na <b>ilustração</b>:</summary>
 
   ![img](req-2.gif)
@@ -132,7 +132,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ---
 
-## 3 - Crie um filtro para valores numéricos
+### 3 - Crie um filtro para valores numéricos
 
 <details><summary> O filtro funcionará com três seletores:</summary>
 
@@ -174,7 +174,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ---
 
-## 4 - Implemente múltiplos filtros numéricos
+### 4 - Implemente múltiplos filtros numéricos
 
 <details><summary> Deverá ser possível adicionar múltiplos filtros numéricos. Todos os filtros adicionados devem funcionar de forma conjunta:</summary>
 
@@ -183,7 +183,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ---
 
-## 5 - Desenvolva testes para atingir 30% de cobertura total da aplicação
+### 5 - Desenvolva testes para atingir 30% de cobertura total da aplicação
 
 <details><summary>Observações técnicas</summary>
 
@@ -192,7 +192,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ---
 
-## 6 - Não utilize filtros repetidos
+### 6 - Não utilize filtros repetidos
 
 <details><summary> Caso um filtro seja totalmente preenchido, um novo filtro de valores numéricos deve ser carregado.</summary>
 
@@ -208,7 +208,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ---
 
-## 7 - Apague um filtro de valor numérico ao clicar no ícone `X` de um dos filtros e apague todas filtragens numéricas simultaneamente ao clicar em outro botão de `Remover todas filtragens`
+### 7 - Apague um filtro de valor numérico ao clicar no ícone `X` de um dos filtros e apague todas filtragens numéricas simultaneamente ao clicar em outro botão de `Remover todas filtragens`
 
 * <details><summary> O <code>button</code> que permite exclusão de um filtro deve existir em todos os filtros de valores numéricos:</summary>
 
@@ -237,7 +237,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ---
 
-## 8 - Desenvolva testes para atingir 60% de cobertura total da aplicação
+### 8 - Desenvolva testes para atingir 60% de cobertura total da aplicação
 
 <details><summary>Observações técnicas</summary>
 
@@ -248,7 +248,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 # Requisito Bônus
 
-## 9 - Ordene as colunas de forma ascendente ou descendente
+### 9 - Ordene as colunas de forma ascendente ou descendente
 
 * A ordenação deve ser feita via filtro: um dropdown selecionará a coluna a basear a ordenação e um par de radio buttons determinará se é ascendente ou descendente.
 
@@ -290,7 +290,7 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ---
 
-## 10 - Desenvolva testes para atingir 90% de cobertura total da aplicação
+### 10 - Desenvolva testes para atingir 90% de cobertura total da aplicação
 
 <details><summary>Observações técnicas</summary>
 
