@@ -9,10 +9,6 @@ describe('8 - Desenvolva testes para atingir 60% de cobertura total da aplicaç�
     cy.task('getCoverage', getId()).its('total.functions.pct', { timeout: 0 }).should('be.gte', 60.00);
   });
 
-  it('Cobertura de "Branches" total deverá ser maior ou igual a 60.', () => {
-    cy.task('getCoverage', getId()).its('total.branches.pct', { timeout: 0 }).should('be.gte', 60.00);
-  });
-
   it('Cobertura de "Lines" total deverá ser maior ou igual a 60.', () => {
     cy.task('getCoverage', getId()).its('total.lines.pct', { timeout: 0 }).should('be.gte', 60.00);
   });
