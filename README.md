@@ -2,7 +2,7 @@
 
 ![img](projectIntro.gif)
 
-
+Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ## O que foi desenvolvido 👨‍💻 
 
@@ -15,8 +15,7 @@
   * _React Hook useContext_;
   * _React Hook useEffect_;
   * _React Hooks_ customizados.
-  *  _Jest_
-
+  
 ## Instruções para rodar o projeto <a name="instrucoes"></a>
 
      
