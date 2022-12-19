@@ -81,26 +81,17 @@
 <details><summary><strong>Checklist</strong></summary>
 
 - [x] 1. 
-
 - [x] 2. 
-
 - [x] 3.
-
 - [x] 4. 
-
 - [x] 5.
-
 - [x] 6. 
-
 - [x] 7. 
-
 - [x] 8. 
-
 - [ ] 9. 
-
 - [x] 10. 
-  
-</details><br />
+
+  </details><br />
 
 ## 1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos dados da coluna `residents`
 
