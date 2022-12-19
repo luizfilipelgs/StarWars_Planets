@@ -6,15 +6,17 @@ Link Deploy: https://luizfilipelgs.github.io/StarWars_Planets
 
 ## O que foi desenvolvido 👨‍💻 
 
-  Uma lista com filtros de planetas do universo de Star Wars usando **Context API e Hooks** para controlar os estados globais.
+  Neste projeto criei uma lista com filtros de planetas do universo de Star Wars usando Context API e Hooks para controlar os estados globais como:  useState, useContext, useEffect e Hooks customizados. 
 
   Nesse projeto utilizei:
 
-  * _Context API_ do **React** para gerenciar estado.
-  * _React Hook useState_;
-  * _React Hook useContext_;
-  * _React Hook useEffect_;
-  * _React Hooks_ customizados.
+  - React.js
+
+  - Componentes Funcionais e Hooks
+
+  - Context API
+
+  - Jest para testes
   
 ## Instruções para rodar o projeto <a name="instrucoes"></a>
 
